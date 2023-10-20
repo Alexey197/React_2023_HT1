@@ -13,8 +13,6 @@ function App() {
    setItems(items.map(item => item.id !== id ? item : {
     ...item, min: newValue
    }))
-    
-    console.log('here')
   }
 
   const itemsElems = items.map(item => <Todo

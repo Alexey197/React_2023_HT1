@@ -8,7 +8,10 @@ Todo.propTypes = {
 }
 
 export function Todo({ title, min, max, changed }) {
+  console.log(min === max)
   let canInc = min < max
+  
+  const classes = min / max > 0.33 && min / max < 0.66 ? "card-todo__two-thirds" : min / max > 0.66 ? "card-todo__full" : "card-todo"
   
   function increase() {
     if (canInc) {
@@ -17,9 +20,10 @@ export function Todo({ title, min, max, changed }) {
   }
   return (
     <>
-      <div className='card card-todo p-3 m-3'>
+      <div className={classes}>
         <p>{title}</p>
         <hr/>
+        <div className='card p-2'></div>
         <strong>{min}/{max}</strong>
         <hr/>
         <div>
