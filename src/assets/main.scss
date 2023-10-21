@@ -17,3 +17,7 @@
 .card-todo__full {
   background-color: $teal-200;
 }
+
+.card__level {
+  transition: all 0.3s ease-out;
+}

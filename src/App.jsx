@@ -9,6 +9,8 @@ function App() {
    {id: 3,title: 'Еще что-нибудь', min: 0, max: 10}
  ])
   
+  // const [ showButton, setShowButton ] = useState(false)
+  
   function setItemValue(newValue, id) {
    setItems(items.map(item => item.id !== id ? item : {
     ...item, min: newValue
@@ -21,6 +23,7 @@ function App() {
     min={item.min}
     max={item.max}
     changed={(newValue) => setItemValue(newValue, item.id)}
+    showed={item.min !== item.max}
   />)
   
   return <div>
