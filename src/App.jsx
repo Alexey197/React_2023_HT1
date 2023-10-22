@@ -45,17 +45,19 @@ function App() {
   />)
   
   return <>
-    <div className="card m-2 p-2">
-      <label htmlFor="myTitle">Enter your task title</label>
-      <input type="text" id="myTitle" ref={titleInput}/>
-    </div>
-    <div className="card m-2 p-2">
-      <label htmlFor="myMin">Enter min</label>
-      <input type="text" id="myMin" ref={minInput}/>
-    </div>
-    <div className="card m-2 p-2">
-      <label htmlFor="myMax">Enter max</label>
-      <input type="text" id="myMax" ref={maxInput}/>
+    <div className="item-width">
+      <div className="card m-2 p-2">
+        <label htmlFor="myTitle">Enter your task title</label>
+        <input type="text" id="myTitle" ref={titleInput}/>
+      </div>
+      <div className="card m-2 p-2">
+        <label htmlFor="myMin">Enter min</label>
+        <input type="text" id="myMin" ref={minInput}/>
+      </div>
+      <div className="card m-2 p-2">
+        <label htmlFor="myMax">Enter max</label>
+        <input type="text" id="myMax" ref={maxInput}/>
+      </div>
     </div>
     <button className="btn btn-success m-1 p-1" onClick={addNewTask}>Add task</button>
     <div>

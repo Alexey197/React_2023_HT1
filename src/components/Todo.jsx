@@ -25,17 +25,13 @@ export function Todo({ showed, title, min, max, changed, deleted }) {
     "card-todo__two-thirds" : min / max > 0.66 ?
       "card-todo__full" :
       "card-todo"
-  const className = `${classes} m-3 p-2`
+  const className = `${classes} m-3 p-2 item-width`
   
   function increase() {
     if (canInc) {
       changed(min + 1)
       setLevel({...level, width: `${(min + 1) / max * 100}%`})
     } else console.log('max')
-  }
-  
-  const itemStyle = {
-    width: '780px'
   }
   
   const strongClasses = ['d-none']
@@ -48,7 +44,7 @@ export function Todo({ showed, title, min, max, changed, deleted }) {
   
   return (
     <>
-      <div className={className} style={itemStyle}>
+      <div className={className}>
         <p>{title}</p>
         <hr/>
         <div className='card m-2'>
