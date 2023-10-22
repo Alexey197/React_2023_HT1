@@ -29,6 +29,10 @@ function App() {
     ...item, min: newValue
    }))
   }
+  
+  function deleteItem(id) {
+    setItems(items.filter(item => item.id !== id))
+  }
 
   const itemsElems = items.map(item => <Todo
     key={item.id}
@@ -37,6 +41,7 @@ function App() {
     max={item.max}
     changed={(newValue) => setItemValue(newValue, item.id)}
     showed={item.min !== item.max}
+    deleted={() => deleteItem(item.id)}
   />)
   
   return <>
