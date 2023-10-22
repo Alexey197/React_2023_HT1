@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import {useState} from 'react'
 
 Todo.propTypes = {
   title: PropTypes.string.isRequired,
@@ -9,9 +10,14 @@ Todo.propTypes = {
 }
 
 export function Todo({ showed, title, min, max, changed }) {
-  let canInc = min < max
+  const [level, setLevel] = useState({
+    height: '15px',
+    width: '0%',
+    backgroundColor: 'red',
+    background: 'red'
+  })
   
-  // current = min
+  let canInc = min < max
   
   const classes = min / max > 0.33 && min / max < 0.66 ?
     "card-todo__two-thirds" : min / max > 0.66 ?
@@ -22,17 +28,12 @@ export function Todo({ showed, title, min, max, changed }) {
   function increase() {
     if (canInc) {
       changed(min + 1)
+      setLevel({...level, width: `${(min + 1) / max * 100}%`})
     } else console.log('max')
   }
   
-  const levelWidth = `${min / max * 100}%`
+  console.log(level.width)
   
-  const divStyle = {
-    height: '15px',
-    width: levelWidth,
-    backgroundColor: 'red',
-    background: 'red'
-  }
   
   const itemStyle = {
     width: '780px'
@@ -52,7 +53,7 @@ export function Todo({ showed, title, min, max, changed }) {
         <p>{title}</p>
         <hr/>
         <div className='card m-2'>
-          <div className="card__level" style={divStyle}></div>
+          <div className="card__level" style={level}></div>
         </div>
         <strong>{min}/{max}</strong>
         <hr/>
