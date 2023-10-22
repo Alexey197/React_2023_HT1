@@ -5,11 +5,13 @@ Todo.propTypes = {
   min: PropTypes.number.isRequired,
   max: PropTypes.number.isRequired,
   changed: PropTypes.func.isRequired,
-  showed: PropTypes.bool.isRequired
+  showed: PropTypes.bool.isRequired,
 }
 
 export function Todo({ showed, title, min, max, changed }) {
   let canInc = min < max
+  
+  // current = min
   
   const classes = min / max > 0.33 && min / max < 0.66 ?
     "card-todo__two-thirds" : min / max > 0.66 ?
