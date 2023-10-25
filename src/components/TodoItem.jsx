@@ -24,6 +24,7 @@ function TodoItem({ item, step }) {
       <button onClick={() => step(id)} type="button" className="btn btn-primary">Make step</button> :
       <strong>Wel Done</strong>
     }
+    
   </div>
 }
 
