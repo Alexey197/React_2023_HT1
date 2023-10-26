@@ -1,4 +1,4 @@
-import PropTypes, {string} from 'prop-types';
+import PropTypes from 'prop-types';
 import AppProgress from './Progress'
 
 TodoItem.propTypes = {
@@ -22,7 +22,7 @@ function TodoItem({ item, step }) {
     </div>
     {rel < 1 ?
       <button onClick={() => step(id)} type="button" className="btn btn-primary">Make step</button> :
-      <strong>Wel Done</strong>
+      <strong>Well Done</strong>
     }
     
   </div>

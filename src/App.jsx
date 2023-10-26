@@ -1,12 +1,17 @@
 import { useState } from 'react'
 import TodoItem  from './components/TodoItem'
+import AppTodoForm from './components/TodoForm.jsx'
 
 function App() {
  const [ items, setItems ] = useState([
-   {id: 1,title: 'Турник', current: 0, max: 5},
-   {id: 2,title: 'Поесть', current: 0, max: 3},
-   {id: 3,title: 'Еще что-нибудь', current: 0, max: 10}
+   {id: randomId(),title: 'Турник', current: 0, max: 5},
+   {id: randomId(),title: 'Поесть', current: 0, max: 3},
+   {id: randomId(),title: 'Еще что-нибудь', current: 0, max: 10}
  ])
+  
+  function randomId() {
+   return Math.random() + ':' + Date.now()
+  }
   
   function increaseItem(id) {
    setItems(items.map(item =>
@@ -22,7 +27,13 @@ function App() {
     step={increaseItem}
   />)
   
+  function createItem({ title, max}) {
+    setItems([...items, {title, max: +max, current: 0, id: randomId()}])
+  }
+  
   return <div className="container">
+    <hr/>
+    <AppTodoForm created={createItem}/>
     {itemsElems}
   </div>
 }
