@@ -34,15 +34,15 @@ function App() {
     setItems([...items, {title, max: +max, current: 0, id: randomId()}])
   }
 
-  function applyLogin(newLogin) {
-   setLogin(newLogin.replace(/\D/g, ''))
-  }
+  // function applyLogin(newLogin) {
+  //  setLogin(newLogin.replace(/\D/g, ''))
+  // }
 
   return <div className="container">
     <hr/>
     <LazyInput
       value={login}
-      onChange={applyLogin}
+      onChange={setLogin}
       placeholder="Lazy login"
       type="text"
     />

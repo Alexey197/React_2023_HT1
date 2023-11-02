@@ -10,15 +10,16 @@ LazyInput.propTypes = {
 function LazyInput({ value, onChange, ...otherProps }) {
   let [ innerValue, setInnerValue] = useState(value)
   let elem = useRef()
-  let escMode = false
 
   useEffect(() => {
     setInnerValue(value)
   }, [ value ])
 
   function applyValue() {
-    if (!escMode) {
+    if (!elem.current.appEscapeMode) {
       onChange(innerValue)
+    } else {
+      delete elem.current.appEscapeMode
     }
   }
 
@@ -28,7 +29,7 @@ function LazyInput({ value, onChange, ...otherProps }) {
     }
     else if (e.key === 'Escape') {
       setInnerValue(value)
-      escMode = true
+      elem.current.appEscapeMode = true
       elem.current.blur()
     }
   }
