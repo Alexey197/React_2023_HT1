@@ -4,13 +4,13 @@ export default function useClickOutside(ref, fn) {
 
   function clickHandler(e) {
     if(!ref.current.contains(e.target)) {
-      fn()
+      fn(e)
     }
   }
 
   useEffect(() => {
     window.addEventListener('click', clickHandler)
-    
+
     return () => {
       window.removeEventListener('click', clickHandler)
     }
