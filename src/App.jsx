@@ -5,6 +5,7 @@ import LazyInput from './components/LazyInput.jsx'
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import useWindowSize from './hooks/useWindowSize.jsx'
+import Modal from './components/Modal.jsx';
 
 function App() {
  const [ items, setItems ] = useState([
@@ -15,8 +16,10 @@ function App() {
 
   const [ login, setLogin ] = useState('')
 
+  const  [show, setShow ] = useState(true)
+
   let { width, height } = useWindowSize()
-  console.log(width, height);
+  // console.log(width, height);
 
   function randomId() {
    return Math.random() + ':' + Date.now()
@@ -44,7 +47,8 @@ function App() {
   //  setLogin(newLogin.replace(/\D/g, ''))
   // }
 
-  return <div className="container">
+  return <>
+    <div className="container">
     <hr/>
     <LazyInput
       value={login}
@@ -75,6 +79,8 @@ function App() {
       </Tab>
     </Tabs>
   </div>
+  <Modal title="Закройте окно" showen={show} onClose={() => setShow(false)}/>
+  </>
 }
 
 export default App
