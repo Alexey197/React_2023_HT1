@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import {useEffect, useState, useRef} from 'react'
+import useWindowSize from '../hooks/useWindowSize'
 
 LazyInput.propTypes = {
   onChange: PropTypes.func.isRequired,
@@ -10,6 +11,8 @@ LazyInput.propTypes = {
 function LazyInput({ value, onChange, ...otherProps }) {
   let [ innerValue, setInnerValue] = useState(value)
   let elem = useRef()
+
+  let windowSize = useWindowSize()
 
   useEffect(() => {
     setInnerValue(value)
@@ -34,7 +37,10 @@ function LazyInput({ value, onChange, ...otherProps }) {
     }
   }
 
-  return <input
+  return <div>
+    {windowSize.width} :
+    {windowSize.height}
+    <input
     ref={elem}
     value={innerValue}
     onChange={e => setInnerValue(e.target.value)}
@@ -42,6 +48,7 @@ function LazyInput({ value, onChange, ...otherProps }) {
     onKeyUp={checkKey}
     {...otherProps}
   />
+  </div>
 }
 
 export default LazyInput

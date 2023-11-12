@@ -2,6 +2,9 @@ import { useState } from 'react'
 import TodoItem  from './components/TodoItem'
 import AppTodoForm from './components/TodoForm.jsx'
 import LazyInput from './components/LazyInput.jsx'
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
+import useWindowSize from './hooks/useWindowSize.jsx'
 
 function App() {
  const [ items, setItems ] = useState([
@@ -11,6 +14,9 @@ function App() {
  ])
 
   const [ login, setLogin ] = useState('')
+
+  let { width, height } = useWindowSize()
+  console.log(width, height);
 
   function randomId() {
    return Math.random() + ':' + Date.now()
@@ -52,6 +58,22 @@ function App() {
     <button onClick={() => setLogin('admin')}>lol</button>
     <AppTodoForm created={createItem}/>
     {itemsElems}
+    <hr />
+    <Tabs
+      defaultActiveKey="profile"
+      id="uncontrolled-tab-example"
+      className="mb-3"
+    >
+      <Tab eventKey="home" title="Home">
+        Tab content for Home
+      </Tab>
+      <Tab eventKey="profile" title="Profile">
+        Tab content for Profile
+      </Tab>
+      <Tab eventKey="contact" title="Contact" disabled>
+        Tab content for Contact
+      </Tab>
+    </Tabs>
   </div>
 }
 
