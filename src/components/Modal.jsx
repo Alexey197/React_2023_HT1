@@ -17,10 +17,6 @@ export default function MyModal({ title, showen, onClose }) {
     classes.push('d-none')
   }
 
-  // function test() {
-  //   console.log('normal');
-  // }
-
   useClickOutside(root, onClose)
 
   return (

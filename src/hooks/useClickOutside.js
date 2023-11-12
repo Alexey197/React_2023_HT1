@@ -1,20 +1,18 @@
 import { useEffect } from "react";
 
-export default function useClickOutside(html, callback) {
+export default function useClickOutside(ref, fn) {
 
-  function isClickOutSide(e) {
-    return html.current.contains(e.target)
-  }
-
-  function isClickHere(e) {
-  
-    if(!isClickOutSide(e)) {
-      callback()
+  function clickHandler(e) {
+    if(!ref.current.contains(e.target)) {
+      fn()
     }
   }
 
   useEffect(() => {
-    window.addEventListener('click', isClickHere)
-    return () => window.removeEventListener('click', isClickHere)
-  })
+    window.addEventListener('click', clickHandler)
+    
+    return () => {
+      window.removeEventListener('click', clickHandler)
+    }
+  }, [ref, fn])
 }
