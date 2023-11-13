@@ -4,7 +4,6 @@ import AppTodoForm from './components/TodoForm.jsx'
 import LazyInput from './components/LazyInput.jsx'
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import useWindowSize from './hooks/useWindowSize.jsx'
 import Modal from './components/Modal.jsx';
 
 function App() {
@@ -17,9 +16,6 @@ function App() {
   const [ login, setLogin ] = useState('')
 
   const  [show, setShow ] = useState(true)
-
-  let { width, height } = useWindowSize()
-  // console.log(width, height);
 
   function randomId() {
    return Math.random() + ':' + Date.now()
@@ -42,10 +38,6 @@ function App() {
   function createItem({ title, max}) {
     setItems([...items, {title, max: +max, current: 0, id: randomId()}])
   }
-
-  // function applyLogin(newLogin) {
-  //  setLogin(newLogin.replace(/\D/g, ''))
-  // }
 
   return <>
     <div className="container">
