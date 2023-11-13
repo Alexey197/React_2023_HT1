@@ -5,6 +5,7 @@ import LazyInput from './components/LazyInput.jsx'
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Modal from './components/Modal.jsx';
+import AlertBox from './components/AlertBox.jsx';
 
 function App() {
  const [ items, setItems ] = useState([
@@ -16,6 +17,12 @@ function App() {
   const [ login, setLogin ] = useState('')
 
   const  [show, setShow ] = useState(true)
+
+  let content = []
+
+  for(let i = 0; i < 30; i++) {
+    content.push(<p key={i}>Some text {i}</p>)
+  }
 
   function randomId() {
    return Math.random() + ':' + Date.now()
@@ -48,6 +55,12 @@ function App() {
       placeholder="Lazy login"
       type="text"
     />
+    {content}
+    <AlertBox>
+      <p>1</p>
+      <p>2</p>
+      <p>3</p>
+    </AlertBox>
     <hr/>
     <h3>{login}</h3>
     <hr/>
