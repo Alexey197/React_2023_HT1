@@ -6,6 +6,7 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Modal from './components/Modal.jsx';
 import AlertBox from './components/AlertBox.jsx';
+import AlertBoxNativeHook from './components/AlertBoxNativeHook.jsx';
 
 function App() {
  const [ items, setItems ] = useState([
@@ -61,6 +62,11 @@ function App() {
       <p>2</p>
       <p>3</p>
     </AlertBox>
+    <AlertBoxNativeHook>
+      <p>1</p>
+      <p>2</p>
+      <p>3</p>
+    </AlertBoxNativeHook>
     <hr/>
     <h3>{login}</h3>
     <hr/>
