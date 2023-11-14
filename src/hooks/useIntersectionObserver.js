@@ -14,6 +14,8 @@ export default function useIntersectionObserver(elRef, rootMargin = '0px', onlyF
     )
 
     observer.observe(elRef.current)
+
+    return () => observer.disconnect()
     
   }, [])
 
