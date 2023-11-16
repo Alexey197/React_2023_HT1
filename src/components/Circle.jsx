@@ -1,4 +1,7 @@
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import SettingContext from './context/settings';
+import dictionary from './constants/dictionary';
 
 Circle.propTypes = {
 	min: PropTypes.number.isRequired,
@@ -12,6 +15,7 @@ export default function Circle({ min, max, value, changed }) {
 	let circleStyles = { width: size, height: size };
 	let canDec = value > min;
 	let canInc = value < max;
+	let lang = useContext(SettingContext)
 
 	function increase(){
 		if(canInc){
@@ -42,8 +46,8 @@ export default function Circle({ min, max, value, changed }) {
 		{
 			( !canDec || !canInc ) &&
 			<div className="alert alert-danger mt-3">
-				{ !canDec && 'Minimum now!' }
-				{ !canInc && 'Maximum now!' }
+				{ !canDec && dictionary.isMinimum[lang] }
+				{ !canInc && dictionary.isMaximum[lang] }
 			</div>
 		}
 	</div>;
