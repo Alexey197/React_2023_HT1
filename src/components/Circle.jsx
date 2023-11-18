@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
-import SettingContext from './context/settings';
-import dictionary from './constants/dictionary';
+import SettingContext from '../context/settings';
+import dictionary from '../constants/dictionary';
 
 Circle.propTypes = {
 	min: PropTypes.number.isRequired,

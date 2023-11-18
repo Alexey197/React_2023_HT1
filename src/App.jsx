@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
 import CartItem  from "./components/CartItem";
-import SettingContext from "./components/context/settings";
+import SettingContext from "./context/settings";
+import Product from "./components/Products";
 
 export default function App() {
 	let [ items, setItems ] = useState([
@@ -30,10 +31,13 @@ export default function App() {
 				{itemsElems}
 			</tbody>
 		</table>
+		<hr />
+			<Product />
+		<hr />
 		<footer>
       <button onClick={() => setLang('ru')} disabled={lang == 'ru'}>ru</button>
       <button onClick={() => setLang('en')} disabled={lang == 'en'}>en</button>
     </footer>
-	</div>;
+	</div>
 	</SettingContext.Provider>
 }
