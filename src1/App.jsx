@@ -7,6 +7,7 @@ import Tabs from 'react-bootstrap/Tabs';
 import Modal from './components/Modal.jsx';
 import AlertBox from './components/AlertBox.jsx';
 import AlertBoxNativeHook from './components/AlertBoxNativeHook.jsx';
+import useFetch from './hooks/useFetch.js';
 
 function App() {
  const [ items, setItems ] = useState([
@@ -15,9 +16,10 @@ function App() {
    {id: randomId(),title: 'Еще что-нибудь', current: 0, max: 10}
  ])
 
-  const [ login, setLogin ] = useState('')
+  let [ login, setLogin ] = useState('')
+  let [show, setShow ] = useState(true)
 
-  const  [show, setShow ] = useState(true)
+  let productsRequest = useFetch('https://jsonplaceholder.typicode.com/users/1/todos')
 
   let content = []
 
@@ -89,6 +91,13 @@ function App() {
         Tab content for Contact
       </Tab>
     </Tabs>
+    <hr />
+      { productsRequest.done && productsRequest.data &&
+          <pre>
+            {productsRequest.data}
+          </pre>
+      }
+    <hr />
   </div>
   <Modal title="Закройте окно" showen={show} onClose={() => setShow(false)}/>
   </>

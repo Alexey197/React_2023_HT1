@@ -4,10 +4,9 @@ import useIntersectionObserver from "../hooks/useIntersectionObserver"
 
 function AlertBox({ children }) {
   let el = useRef()
-  let opened = true
   let observer = useIntersectionObserver(el, '-200px')
 
-  console.log(observer);
+  // console.log(observer);
 
   return <div 
     className={`alert alert-success ${styles.alert} ${observer?.isIntersecting ? styles.alertShowed : ''}`} 
