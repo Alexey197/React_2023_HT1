@@ -7,8 +7,12 @@
 
   useEffect(() => {
     fetch(url, options)
-      .then(response => response.text())
-      .then(text => setData(text))
+      .then(response => {
+        return response.json()
+      })
+      .then(data => {
+        setData(data)
+      })
       .catch(e => setError(e))
       .finally(() => setDone(true))
   }, [])
