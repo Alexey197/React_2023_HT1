@@ -8,7 +8,7 @@
   useEffect(() => {
     fetch(url, options)
       .then(response => {
-        return response.json()
+        return response.text()
       })
       .then(data => {
         setData(data)

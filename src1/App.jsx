@@ -27,14 +27,6 @@ function App() {
     content.push(<p key={i}>Some text {i}</p>)
   }
 
-  let elemsArr = []
-  { productsRequest.done && productsRequest.data &&
-    productsRequest.data.map(p => {
-      elemsArr.push(p.title);
-    })
- }
-
- console.log(elemsArr)
 
   function randomId() {
    return Math.random() + ':' + Date.now()
@@ -102,7 +94,12 @@ function App() {
     </Tabs>
 
     <hr />
-    {elemsArr.map((e, i) => <h3 key={i}>{e}</h3>)}
+      {
+        productsRequest.done && productsRequest.data &&
+        <pre>
+          {productsRequest.data}
+        </pre>
+      }
     <hr />
   </div>
   <Modal title="Закройте окно" showen={show} onClose={() => setShow(false)}/>
