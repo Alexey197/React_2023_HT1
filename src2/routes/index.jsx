@@ -1,7 +1,7 @@
 import Products from "../views/Products"
 import Cart from "../views/Cart"
 
-const routs = [
+const routes = [
   {
     path: '/',
     element: <Products />
@@ -12,4 +12,4 @@ const routs = [
   }
 ]
 
-export default routs
+export default routes
