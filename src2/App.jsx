@@ -1,5 +1,6 @@
 import { useRoutes, Link } from "react-router-dom";
 import routes from "./routes";
+import Cart from "./components/Cart";
 
 export default function App() {
   const element = useRoutes(routes);
@@ -7,7 +8,10 @@ export default function App() {
   return (
     <div>
       <header>
-        <div className="container">Logo Cart</div>
+        <div className="container">
+					<Cart />
+					Logo Cart
+				</div>
       </header>
       <div>
         <div className="container">

@@ -9,7 +9,7 @@ export default class CartStore {
   }
 
   get cnt() {
-    return this.items.length
+    return this.items.length;
   }
 
   get total() {
@@ -18,6 +18,7 @@ export default class CartStore {
 
   add(id) {
     this.items.push( { id, cnt: 1 } )
+    console.log(this.items);
   }
 
   remove(id) {
