@@ -2,5 +2,5 @@ import axios from "axios";
 
 export default axios.create({
   baseURL: 'https://faceprog.ru/reactcourseapi',
-  timeout: 1000
+  timeout: 10000
 })
