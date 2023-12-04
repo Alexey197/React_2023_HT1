@@ -17,7 +17,7 @@ function Products() {
               key={product.id}
             >
               <h2>{product.title}</h2>
-              <Link to='/catalog/:id'>Карточка товара</Link>
+              <Link to={`/catalog/:${product.id}`}>Карточка товара</Link>
               <button type="button" onClick={() => cartStore.add(product.id)}>Add</button>
             </div>
           ))}
