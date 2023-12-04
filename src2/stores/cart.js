@@ -16,6 +16,10 @@ export default class CartStore {
     return this.items.reduce((t, item) => t + item.id, 0) //id now is price of item
   }
 
+  get has() {
+    return (id) => this.items.some(item => item.id === id)
+  }
+
   add(id) {
     this.items.push( { id, cnt: 1 } )
     console.log(this.items);

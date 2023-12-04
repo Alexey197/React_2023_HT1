@@ -1,5 +1,7 @@
+import E404 from "../components/errors/E404";
 import useApi from "../hooks/useApi";
 import { useParams } from "react-router-dom"
+
 
 function Product() {
   const id = useParams()
@@ -11,7 +13,7 @@ function Product() {
   }
 
   if(error !== null) {
-    return <div>Loading...</div>
+    return <E404 title="Product cant be loaded"/>
   }
 
   return <div>

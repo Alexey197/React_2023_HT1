@@ -1,6 +1,7 @@
 import { useRoutes, Link } from "react-router-dom";
 import routes from "./routes";
 import Cart from "./components/Cart";
+import E404 from "./components/errors/E404";
 
 export default function App() {
   const element = useRoutes(routes);
@@ -28,13 +29,7 @@ export default function App() {
             </div>
             <div className="col col-9"></div>
           </div>
-          {element ?? 
-						<div>
-							<h3>
-								Page not found
-							</h3>
-						</div>
-					}
+          {element ?? <E404 />}
         </div>
       </div>
       <footer>
