@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 
 
 function Product() {
-  const id = useParams()
+  const { id } = useParams()
   const { done, data, error } = useApi('products.one', id)
   console.log(data);
 
@@ -17,8 +17,11 @@ function Product() {
   }
 
   return <div>
-  <h1>Product item</h1>
-</div>
+    <h1>{data.title}</h1>
+    <strong>Price: {data.price} rub</strong>
+    <br />
+    <strong>Rest: {data.rest}</strong>
+  </div>
 }
 
 export default Product
